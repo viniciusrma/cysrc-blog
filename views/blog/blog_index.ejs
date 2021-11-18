@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-lg-9" dir="ltr">
+            <div class="blog-posts single-post">
+                <article class="post post-large blog-single-post border-0 m-0 p-0">
+                    <div class="post-date ml-0">
+                        <span class="day">
+                            <%= posts.day %>
+                        </span>
+                        <span class="month">
+                            <%= posts.month %>
+                        </span>
+                        <span class="year">
+                            <%= posts.year %>
+                        </span>
+                    </div>
+                    <div class="post-content">
+
+                        <h2><a href="#">
+                                <%= posts.title %>
+                            </a></h2>
+                        <div class="post-meta">
+                            <span><i class="fa fa-user"></i> Autor <%= posts.author %></a></span>
+                        </div>
+                        <%- post %>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -16,6 +16,7 @@
 <style>
     body {
         font-family: 'Roboto', sans-serif;
+        background-color: #f9f9f9;
     }
 
     header {
@@ -27,12 +28,17 @@
         font-size: calc(1.5rem + 1.5vw);
     }
 
+    .container {
+        padding-right: var(--bs-gutter-x, .5rem);
+        padding-left: var(--bs-gutter-x, .5rem);
+    }
+
     .styled-card {
+        background-color: #f9f9f9;
         border: none;
         padding-top: 1rem;
         padding-bottom: 1rem;
         border-radius: 24px;
-        max-height: 522px;
     }
 
     .styled-card:hover {
@@ -64,7 +70,6 @@
     }
 
     .card-image {
-        background: url("<%= posts.image %>") no-repeat center;
         background-size: cover;
         height: 200px;
         min-height: 200px;
@@ -78,30 +83,29 @@
             CySource Blog
         </h1>
     </header>
-    <div class="container d-flex justify-content-center ">
-        <div class="row isotope">
-            <div class="card mt-4 styled-card isotope-item col-lg-4 col-md-4 col-sm-12">
-                <div class=" card-image"></div>
-                <div class="card-body">
-                    <div>
-                        <small class="text-muted">
-                            <%= posts.date %>     
-                        </small>
-                        <h4 class="card-title mt-2">
-                            <%= posts.title %>
-                        </h4>
-                        <p class="card-subtitle mb-2 text-muted">
-                            Author: <%= posts.author %>
-                        </p>
-                        <div>
-                            <p class="description">
-                                <%= posts.description %>
-                            </p>
+    <div class="container justify-content-center ">
+        <div class="row">
+            <% for (post of posts) { %>
+                <% const file=matter.read('views/blog/' + post); %>
+                    <div class="card mt-4 styled-card isotope-item col-lg-4 col-md-2 col-sm-12">
+                        <img class=" card-image" src="<%= file.data.image %>" alt="">
+                        <div class="card-body">
+                            <div>
+                                <small class="text-muted">
+                                    <%= file.data.date %>
+                                </small>
+                                <h4 class="card-title mt-2">
+                                    <%= file.data.title %>
+                                </h4>
+                                <p class="card-subtitle mb-2 text-muted">
+                                    Author: <%= file.data.author %>
+                                </p>
+                                <button type="button" class="btn">Read more</button>
+                            </div>
                         </div>
-                        <button type="button" class="btn">Read more</button>
                     </div>
-                </div>
-            </div>
+                    <% } %>
+
         </div>
     </div>
 </body>

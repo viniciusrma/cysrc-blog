@@ -1,7 +1,7 @@
 ---
 title: "Vitae, nunc orci eu congue gravida."
 description: "Nulla ullamcorper pellentesque vestibulum arcu ut eu arcu nisi neque."
-image: "../../public/images/alexa.png"
+image: "../../public/images/post3.png"
 author: "Roman Zaikin"
 date: "November 11, 2021"
 day: "17"

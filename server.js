@@ -21,10 +21,9 @@ app.get("/blog", (req, res) => {
   });
 });
 
-app.get("/blog/:id", (req, res) => {
-
+app.get("/blog/:article", (req, res) => {
   // read the markdown file
-  const file = matter.read("views/blogs/" + req.params.id + ".md");
+  const file = matter.read("views/blog/" + req.params.article + ".md");
 
   // use markdown-it to convert content to HTML
   var md = require("markdown-it")({
@@ -44,10 +43,11 @@ app.get("/blog/:id", (req, res) => {
   let content = file.content;
   var result = md.render(content);
 
+  console.log(result);
+
   res.render("article-content", {
     post: result,
-    title: "CySource's Blog",
-    posts: posts,
+    title: file.data.title,
     matter: matter,
 
     description: file.data.description,
@@ -55,6 +55,7 @@ app.get("/blog/:id", (req, res) => {
     day: file.data.day,
     month: file.data.month,
     year: file.data.year,
+    date: file.data.date
   });
 });
 

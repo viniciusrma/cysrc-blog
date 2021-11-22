@@ -54,11 +54,6 @@
         min-width: 190px;
     }
 
-    .card-title:hover {
-        color: #42D993;
-        transition: all ease-in-out 0.2s;
-    }
-
     .btn {
         color: #42D993;
         font-weight: 600;
@@ -74,6 +69,16 @@
         height: 200px;
         min-height: 200px;
         border-radius: 24px;
+    }
+
+    h4 a {
+        color: #161515;
+        text-decoration: none;
+    }
+
+    h4 a:hover {
+        color: #42D993;
+        transition: all ease-in-out 0.2s;
     }
 </style>
 
@@ -94,13 +99,18 @@
                                 <small class="text-muted">
                                     <%= file.data.date %>
                                 </small>
+
                                 <h4 class="card-title mt-2">
-                                    <%= file.data.title %>
+                                    <a href="/blog/<%= post.slice(0, -3) %>" data-toggle="tooltip" data-placement="top" title="Read article">
+                                        <%= file.data.title %>
+                                    </a>
                                 </h4>
+
                                 <p class="card-subtitle mb-2 text-muted">
                                     Author: <%= file.data.author %>
                                 </p>
-                                <button type="button" class="btn">Read more</button>
+
+                                <a type="button" class="btn" href="/blog/<%= post.slice(0, -3) %>">Read article</a>
                             </div>
                         </div>
                     </div>
